@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}'s Todo list</title>
+    <link rel="icon" href="{{ url_for('static', filename='bar.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    <h2>
+        <img alt="foo" class="foo" src="{{ url_for('static', filename='images/foo.jpg') }}">
+        {{ name }}'s Todo 清单
+    </h2>
+
+    {# 使用 length 过滤器获取 movies 变量的长度 #}
+    <p>{{ todos|length }} Titles</p>
+
+    <ul class="todo-list">
+        {% for todo in todos %} {# 迭代 todos 变量 #}
+            <li>
+                {{ todo.title }} - {{ todo.type }}
+            </li>
+                {# 等同于 todo['title'] #}
+        {% endfor %} {# 使用 endfor 标签结束 for 语句 #}
+    </ul>
+    <footer>
+        <small>&copy; 2019 <a href="https://github.com/sjxiang/todo">todo repository</a></small>
+    </footer>
+</body>
+</html>
