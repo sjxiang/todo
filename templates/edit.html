@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Edit item</h3>
+    <form method="post">
+        Title <input type="text" name="title" autocomplete="off"
+                     required value="{{ todo.title }}">
+        Type <input type="text" name="type" autocomplete="off"
+                    required value="{{ todo.type }}">
+        <input class="btn" type="submit" name="submit" value="Update">
+    </form>
+{% endblock %}

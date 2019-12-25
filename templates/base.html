@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.name }}'s Todo list</title>
+    <link rel="icon" href="{{ url_for('static', filename='bar.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock %}
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+
+    <h2>
+        <img alt="foo" class="foo" src="{{ url_for('static', filename='images/foo.jpg') }}">
+        {{ user.name }}'s Todo 清单
+    </h2>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <small>&copy; 2019 <a href="https://github.com/sjxiang/todo">todo repository</a></small>
+    </footer>
+</body>
+</html>
